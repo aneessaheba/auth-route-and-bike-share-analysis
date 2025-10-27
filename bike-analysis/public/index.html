@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bike-Share Pass Optimizer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Bike-Share Pass Optimizer</h1>
+        <p>
+          Upload a month of trip data and provide the official pricing page. The agent will reason through costs using
+          MRKL tools and the ReAct loop, then recommend whether to buy a membership or pay per ride.
+        </p>
+      </header>
+
+      <section class="controls">
+        <form id="agent-form">
+          <div class="field">
+            <label for="tripsFile">Trip CSV (choose one month)</label>
+            <input type="file" id="tripsFile" name="tripsFile" accept=".csv" required />
+          </div>
+          <div class="field">
+            <label for="pricingUrl">Pricing URL</label>
+            <input type="url" id="pricingUrl" name="pricingUrl" placeholder="https://..." required />
+          </div>
+          <button type="submit">Run Agent</button>
+        </form>
+        <div class="status" id="status"></div>
+      </section>
+
+      <section class="metrics" id="metrics" hidden>
+        <div class="metric">
+          <span class="label">Steps</span>
+          <span class="value" id="metric-steps">0</span>
+        </div>
+        <div class="metric">
+          <span class="label">Total Time</span>
+          <span class="value" id="metric-time">0 ms</span>
+        </div>
+        <div class="metric">
+          <span class="label">Stop Reason</span>
+          <span class="value" id="metric-stop">-</span>
+        </div>
+      </section>
+
+      <section class="content">
+        <div class="panel">
+          <h2>Agent Timeline</h2>
+          <ol id="timeline"></ol>
+        </div>
+
+        <div class="panel">
+          <h2>Results</h2>
+          <div id="results"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

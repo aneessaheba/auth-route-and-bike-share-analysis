@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets
+.env
+*.env
+
+# Logs and temp files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+.DS_Store
+.cache/
+coverage/
+dist/
+
+# Upload & build artifacts
+uploads/
+bike-analysis/uploads/
+
+# Data dumps (keep curated samples via exception)
+bike-analysis/data/
+!bike-analysis/data/samples/
+
+# Lockfiles (managed locally)
+package-lock.json
+bike-analysis/package-lock.json
